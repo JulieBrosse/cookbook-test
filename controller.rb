@@ -20,7 +20,6 @@ class Controller
   end
 
   def destroy
-    @view.display(recipes)
     index = @view.ask_index
     @repository.destroy(index)
     @view.action_confirmation

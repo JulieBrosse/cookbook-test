@@ -1,6 +1,7 @@
 class View
   def display(recipes)
     if recipes == []
+      puts "---------------"
       puts "Sorry there are no recipes yet!"
     else
       recipes.each_with_index do |recipe, index|
