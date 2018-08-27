@@ -7,7 +7,7 @@ class Router
     loop do
       print_actions
       action = gets.chomp.to_i
-      dispatch(action)
+      menu(action)
     end
   end
 
@@ -20,6 +20,7 @@ class Router
     puts '2 - Add a new recipe'
     puts '3 - Remove a recipe'
     puts '4 - Import a recipe from Marmiton'
+    puts "----------------------"
   end
 
   def menu(action)
