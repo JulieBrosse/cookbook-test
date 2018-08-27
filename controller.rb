@@ -1,0 +1,38 @@
+require_relative 'recipe'
+require_relative 'view'
+
+class Controller
+  def initialize(repository)
+    @repository = repository
+    @view = View.new
+  end
+
+  def list
+    display_recipes
+  end
+
+  def create
+    description = @view.ask_new_recipe_description
+    @view.ask_new_recipe
+    recipe = Recipe.new[:name, :description]
+    @repository.add_recipe(recipe)
+    @view.action_confirmation
+  end
+
+  def destroy
+    index = @view.ask_index
+    @repository.destroy(index)
+    @view.action_confirmation
+  end
+
+  def import
+  end
+
+
+  private
+
+  def display_recipes
+    recipes = @repository.all
+    @view.display(recipes)
+  end
+end
